@@ -8,5 +8,7 @@ public class AppendController implements Controller {
         System.out.println("사원 정보를 추가합니다......");
         System.out.print("등록할 사원번호 :");
         String id = sc.nextLine();
+
+
     }
 }

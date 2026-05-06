@@ -1,11 +1,9 @@
 package service;
 
+import exception.EmployeeException;
 import vo.EmployeeVO;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class EmployeeService {
@@ -43,9 +41,30 @@ public class EmployeeService {
         }
     }
 
+    public void exportToCSV(){
+        try(FileWriter fw = new FileWriter("employee.csv");
+            PrintWriter pw = new PrintWriter(fw)) {
+            list.forEach(item -> pw.println(item));
+            System.out.println("전제 사원 정보 저장 완료");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static EmployeeService getInstance() {
         if (instance == null)
             instance = new EmployeeService();
         return instance;
+    }
+
+    public EmployeeVO searchEmployee(String id) {
+
+        int idx = list.indexOf(new EmployeeVO(id, null, null, 0, null))
+
+        if (idx != -1)
+            throw new EmployeeException("사원번호가 중복되었습니다.");
+    }
+    public boolean appendEmployee(EmployeeVO employeeVO) {
+        return list.add(employeeVO);
     }
 }
