@@ -13,11 +13,11 @@ public class EmployeeMain {
             System.out.println("-- 사원 관리 프로그램 --");
             System.out.println("1. 사원 정보 등록");
             System.out.println("2. 사원 정보 삭제");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
+            System.out.println("3. 사원 정보 수정");
+            System.out.println("4. 사원 정보 검색 (사번)");
+            System.out.println("5. 전체 사원 조회");
+            System.out.println("0. 프로그램 종료");
+            System.out.println("원하시는 메뉴번호를 입력하세요 :");
             int no = sc.nextInt();sc.nextLine();
 
             Controller controller =

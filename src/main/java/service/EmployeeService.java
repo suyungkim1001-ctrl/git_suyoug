@@ -21,18 +21,21 @@ public class EmployeeService {
         return list;
     }
 
-    private void EmployeeService() {}
-
     private void loadToCSV() {
         try(FileReader fr = new FileReader("employee.csv");
             BufferedReader br = new BufferedReader(fr)) {
+            br.readLine();//필드 목록 건너뜀
 
             while (true) {
                 String str = br.readLine();
                 if (str == null) break;
-                System.out.println(str);
-
+        //        System.out.println(str);
+                String[] arr = str.split(",");
+                list.add(new EmployeeVO(arr[0], arr[1], arr[2],
+                        Integer.parseInt(arr[3]), arr[4]));
             }
+            //파일 로드 완료
+            System.out.println("사원 정보 로드 완료");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
