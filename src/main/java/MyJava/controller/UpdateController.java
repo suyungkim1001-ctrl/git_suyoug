@@ -1,4 +1,4 @@
 package MyJava.controller;
 
-public class UpdateController {
+public class UpdateController implements Controller{
 }

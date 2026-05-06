@@ -1,4 +1,4 @@
 package MyJava.controller;
 
-public class DeleteController {
+public class DeleteController implements Controller{
 }
