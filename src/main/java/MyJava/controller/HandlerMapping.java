@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HandlerMapping {
-    private static HandlerMapping instance = new HandlerMapping();
+    private static HandlerMapping instance;
 
     private HandlerMapping() { }
 
     public static HandlerMapping getInstance() {
+        if (instance == null)
+            instance = new HandlerMapping();
         return instance;
     }
 
@@ -29,7 +31,6 @@ public class HandlerMapping {
                 controller = new PrintAllController();
                 break;
             default:
-                // 1~4 이외의 번호나 0번은 null을 반환하도록 둠
                 break;
         }
 

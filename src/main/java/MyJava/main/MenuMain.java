@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuMain {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<MenuVO> menuList = new ArrayList<>();
         MenuService service = new MenuService();
@@ -31,6 +31,7 @@ public class MenuMain {
                 sc.nextLine();
 
                 if (no == 0) {
+                    service.save(menuList);
                     System.out.println("데이터를 저장하고 프로그램을 종료합니다.");
                     break;
                 }
@@ -38,11 +39,12 @@ public class MenuMain {
                 Controller controller =
                         HandlerMapping.getInstance().createController(no);
 
-                if (controller != null)
+                if (controller != null) {
                     controller.execute(sc, menuList);
                 } else {
-                System.out.println("잘못된 메뉴 번호입니다.");
+                    System.out.println("잘못된 메뉴 번호입니다.");
                 }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

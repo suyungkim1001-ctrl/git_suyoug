@@ -1,5 +1,6 @@
 package MyJava.controller;
 
+import MyJava.service.MenuService;
 import MyJava.vo.MenuVO;
 
 import java.util.List;

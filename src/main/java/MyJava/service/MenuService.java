@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuService {
-    private List<MenuVO> menuList = new ArrayList<>();
     private final String FILE_PATH = "menu.csv";
 
     public void load(List<MenuVO> menuList) {
@@ -50,6 +49,7 @@ public class MenuService {
             System.out.println("파일 저장 실패: " + e.getMessage());
         }
     }
+    
 
 
 }
